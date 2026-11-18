@@ -16,16 +16,20 @@
     const romArquivo = params.get("rom") || "Super Bomberman 2.zip";
     const nomeJogo = params.get("nome") || "Super Bomberman 2";
     const base = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
+    const cdn = "https://cdn." + "emulatorjs." + "org/stable/data/";
 
     window.EJS_player = "#game";
     window.EJS_core = "snes";
     window.EJS_gameName = nomeJogo;
     window.EJS_color = "#651FFF";
     window.EJS_startOnLoaded = false;
-    window.EJS_pathtodata = "https://emulatorjs.org";
+    window.EJS_pathtodata = cdn;
     window.EJS_gameUrl = base + encodeURIComponent(romArquivo);
     window.EJS_language = "pt-BR";
+
+    const s = document.createElement("script");
+    s.src = cdn + "loader.js";
+    document.body.appendChild(s);
   </script>
-  <script src="https://emulatorjs.orgloader.js"></script>
 </body>
 </html>
