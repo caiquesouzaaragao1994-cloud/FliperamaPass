@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>FliperamaPass Player</title>
+  <style>
+    body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+    #game { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const romArquivo = params.get("rom");
+    const nomeJogo = params.get("nome") || "Super Nintendo";
+
+    window.EJS_player = "#game";
+    window.EJS_core = "snes";
+    window.EJS_gameName = nomeJogo;
+    window.EJS_color = "#651FFF";
+    window.EJS_startOnLoaded = true;
+    window.EJS_pathtodata = "https://emulatorjs.org";
+    window.EJS_gameUrl = romArquivo;
+    window.EJS_language = "pt-BR";
+  </script>
+  <script src="https://emulatorjs.orgloader.js"></script>
+</body>
+</html>
